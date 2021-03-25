@@ -32,6 +32,15 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+
+<!-- Emailjs.com for email forwarding on html static sites -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('user_RYevFp6mtIxGCcmTimhuP');
+        })();
+    </script>
+
 </head>
 
 <body>
@@ -514,46 +523,52 @@
       <h2>Contact</h2>
       <h5 class="contact-paragraph">Would you like to contact me? Fill out the form below to answer any questions</h5>
     </div>
+
+    
     
     
     <div class="row justify-content-center" data-aos="fade-in">
-    
       <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-        <form action="https://formspree.io/f/mjvjbagn" method="post" role="form" class="php-email-form">
+        <form role="form" class="php-email-form" id="contact-form">
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="name">Your Name</label>
-              <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+              <input type="text" name="user_name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
               <div class="validate"></div>
             </div>
             <div class="form-group col-md-6">
               <label for="name">Your Email</label>
-              <input type="email" class="form-control" name="email _replyto" id="email" data-rule="email" data-msg="Please enter a valid email" />
+              <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
               <div class="validate"></div>
             </div>
           </div>
           <div class="form-group">
             <label for="name">Subject</label>
-            <input type="hidden" name="_subject" value="New submission!" />
             <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
             <div class="validate"></div>
           </div>
           <div class="form-group">
             <label for="name">Message</label>
-            <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for me"></textarea>
+            <textarea class="form-control" name="message" rows="10" id="message" data-rule="required" data-msg="Please write something for me"></textarea>
             <div class="validate"></div>
           </div>
           <div class="mb-3">
             <div class="loading">Loading</div>
-            <div class="sent-message">Your message has been sent. Thank you!</div>
+          <!-- <div class="sent-message">Your message has been sent. Thank you!</div> -->
+           
           </div>
-          <div class="text-center"><button type="submit">Send Message</button></div>
+          <div class="text-center"><button onclick='sendMail()' value="Send" type="submit">Send Message</button></div>
         </form>
       </div>
     
     </div>
     
   </div>
+
+
+
+  
+
 </section><!-- End Contact Section -->
 
     <section id="skills" class="skills section-bg">
@@ -607,7 +622,33 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <!-- <script src="assets/js/script.js"></script> -->
   <!-- <script src="assets/js/randomPictureGenerator.js"></script> -->
+
+    <!--  Section for Javascript Email Forwarding Emailjs.com -->
+    <script type="text/javascript">
+            let tempParams = {
+                  subject: document.querySelector("#subject").value,
+                  user_name: document.querySelector("#name").value,
+                  message: document.querySelector("#message").value,
+                  reply_to: document.querySelector("#email").value
+              }
+
+     function sendMail() {
+          document.getElementById('contact-form').addEventListener('submit', function(event) {
+              event.preventDefault();
+              // these IDs from the previous steps
+              
+              emailjs.sendForm('service_36iz9e6', "template_u4y8ij2", '#contact-form')
+                  .then(function() {
+                      console.log('SUCCESS!');
+                  }, function(error) {
+                      console.log('FAILED...', error);
+                  });
+          });
+      }
+  </script>
+  <!--  Section for Javascript Email Forwarding Emailjs.com --> 
 
 
 </body>
