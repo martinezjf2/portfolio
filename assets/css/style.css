@@ -1144,6 +1144,10 @@ Contact Section Nav Bar
   padding: 50px 100px;
 }
 
+.contact-paragraph {
+  text-align: center;
+  padding-bottom: 20px;
+}
 
 
 /* .resume-download {
