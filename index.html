@@ -557,7 +557,7 @@
           <!-- <div class="sent-message">Your message has been sent. Thank you!</div> -->
            
           </div>
-          <div class="text-center"><button onclick='sendMail()' value="Send" type="submit">Send Message</button></div>
+          <div class="text-center"><button id="sendButton" onclick='sendMail()' value="Send" type="submit">Send Message</button></div>
         </form>
       </div>
     
@@ -642,6 +642,10 @@
               emailjs.sendForm('service_36iz9e6', "template_u4y8ij2", '#contact-form')
                   .then(function() {
                       console.log('SUCCESS!');
+                      let success = document.getElementById("sendButton");
+                      document.getElementById('contact-form').reset();
+                      success.innerHTML = "Successfully Sent";
+                      success.style.backgroundColor = "green";
                   }, function(error) {
                       console.log('FAILED...', error);
                   });
