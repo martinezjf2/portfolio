@@ -643,10 +643,13 @@
                   .then(function() {
                       console.log('SUCCESS!');
                       let success = document.getElementById("sendButton");
-                      document.getElementById('contact-form').reset();
+                      let contactForm = document.getElementById('contact-form');
+                      contactForm.reset();
+
                       // want to setTimeout in order for the innerHTML to go back to original and the background color of the button to be original as well
                       success.innerHTML = "Successfully Sent";
                       success.style.backgroundColor = "green";
+                      setInterval(() => window.location.reload(true), 3000)
                   }, function(error) {
                       console.log('FAILED...', error);
                   });
