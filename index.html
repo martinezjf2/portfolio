@@ -644,6 +644,7 @@
                       console.log('SUCCESS!');
                       let success = document.getElementById("sendButton");
                       document.getElementById('contact-form').reset();
+                      // want to setTimeout in order for the innerHTML to go back to original and the background color of the button to be original as well
                       success.innerHTML = "Successfully Sent";
                       success.style.backgroundColor = "green";
                   }, function(error) {
