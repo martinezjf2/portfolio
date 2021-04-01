@@ -1160,3 +1160,11 @@ Contact Section Nav Bar
 /* .resume-download {
     display: inline;
   } */
+
+  .quote {
+    text-align: center;
+  }
+
+  .authorOfQuote {
+    text-align: center;
+  }
