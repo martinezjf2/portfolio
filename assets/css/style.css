@@ -417,6 +417,7 @@ section {
 .skills .progress .skill .val {
   float: right;
   font-style: normal;
+  font-size: 35px;
 }
 
 .skills .progress-bar-wrap {
@@ -1179,3 +1180,7 @@ Contact Section Nav Bar
    padding-top: 50px;
    padding-bottom: 50px;
  }
+
+ /* .deviconIcon {
+   height: 200px;
+ } */
