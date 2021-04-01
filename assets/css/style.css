@@ -1168,3 +1168,9 @@ Contact Section Nav Bar
   .authorOfQuote {
     text-align: center;
   }
+
+ /* Quote Section */
+
+ .quote {
+   padding-top: 10px;
+ }
