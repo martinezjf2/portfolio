@@ -1182,6 +1182,10 @@ Contact Section Nav Bar
    padding-bottom: 50px;
  }
 
+ .blogItem {
+   padding-bottom: 10px;
+   padding-top: 10px;
+ }
  /* .deviconIcon {
    height: 200px;
  } */
